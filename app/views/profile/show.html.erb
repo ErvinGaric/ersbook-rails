@@ -1,0 +1,37 @@
+<h1>Profile</h1>
+
+
+<%= @user.name %>
+
+<br><br>
+
+<% if user_signed_in? && current_user != @user %>
+<div >
+
+<%= link_to "Follow", follow_profile_path(@user.id), method: :put%>
+
+
+<%= link_to "Unfollow", unfollow_profile_path(@user.id), method: :put%>
+
+</div>
+<% end %>
+
+<% if user_signed_in? %>
+        <%= link_to('Edit Profile', edit_user_registration_path, class: 'nav-link') %>
+      <% else %>
+        <%= link_to('Register', new_user_registration_path, class: 'nav-link') %>
+      <% end %>
+
+
+  <div class="row">
+  <% @posts.each do |post| %>
+    <div class="col-md-12">
+      <div class="card flex-md-row mb-4 box-shadow h-md-250">
+        <div class="card-body d-flex flex-column align-items-start">
+          <strong class="d-inline-block mb-2 text-primary"><%= post.user.name %></strong>
+          <div class="mb-1 text-muted"><%= post.created_at.strftime('%d. %m. %Y')%></div>
+          <p class="card-text mb-auto"><%= post.opis %></p>
+        </div>  
+      </div>
+    </div>
+  <% end %>
