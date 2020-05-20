@@ -1,24 +1,22 @@
-# README
+# Facebook clone
+Facebook clone is a web application that i tried making for my school project.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation
+Use git to clone the repository.
 
-Things you may want to cover:
+git clone https://github.com/ErvinGaric/ersbook-rails
+Afterwards run:
 
-* Ruby version
+- bundle install
+- yarn install
 
-* System dependencies
+Next you'll need to modify the username and password to your postgres database in /config/database.yml file. Once done, create your database and run migrations:
 
-* Configuration
+- rails db:create
+- rails db:migrate
 
-* Database creation
+## Usage
 
-* Database initialization
+All that's left is to run the server:
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- rails s
